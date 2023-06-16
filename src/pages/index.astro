@@ -1,9 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Icon } from 'astro-icon'
 ---
 
 <Layout title="Welcome to Astro." description="Astro Boilerplate">
-	<main class="h-screen dark:bg-black">
-		<button class="bg-purple-800 text-white px-3 py-2 rounded">Test</button>
+	<main class="h-screen flex items-center justify-center pride">
+		<button class="bg-purple-800 text-white px-8 py-5 rounded flex items-center text-6xl font-bold" id="fart-button"><Icon name="ph:wind" width="72" /><span class="ml-3">Fart</span></button>
 	</main>
 </Layout>
+<style>
+	.pride{
+		background:
+    linear-gradient(red 16.66%, orange 0 33.33%, yellow 0 50%, green 0 66.66%, blue 0 83.33%, indigo 0)
+	}
+</style>
+<script>
+	document.querySelector('#fart-button')?.addEventListener('click', playFartSound)
+	function playFartSound() {
+		const fartNumber = Math.floor(Math.random() * 12 + 1);
+		const fart = new Audio(`/fart${fartNumber}.mp3`);
+		fart.play();
+		
+	}
+</script>
